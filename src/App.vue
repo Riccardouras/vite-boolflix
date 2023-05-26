@@ -12,14 +12,7 @@ export default{
     }
   }, 
   methods: {
-    search(){
-      const movieReaserch = `${this.store.searchMoviesAPI}+${this.searchText}`
-      axios.get( movieReaserch ).then(r =>{
-        const response = r.data;
-        const movies = response.results;
-        this.store.movies = movies;
-      })
-    }
+   
   },
   created () {
     console.log(this.store)
