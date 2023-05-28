@@ -2,7 +2,7 @@
 import {store} from './data/store'
 export default{
     components: {
-        name: "AppMain",
+        name: "AppMainSeries",
     },
     data(){
         return{
@@ -14,14 +14,14 @@ export default{
 
 <template>
     <section>
-        <div><h1>Movies</h1></div>
+        <div><h1>Series</h1></div>
         <div class="movie-conatiner flex" >
-            <div class="card" v-for="movie in store.movies">
+            <div class="card" v-for="serie in store.series">
                 <!-- <img :src="movie.backdrop_path" alt=""> -->
-                <h2>{{movie.title}}</h2>
-                <h3>{{movie.original_title}}</h3>
-                <p>{{movie.original_lenguage}}</p>
-                <span>{{(movie.vote_average / 2).toFixed(1)}}</span>
+                <h2>{{serie.name}}</h2>
+                <h3>{{serie.original_name}}</h3>
+                <p>{{serie.original_language}}</p>
+                <span>{{(serie.vote_average / 2).toFixed(1)}}</span>
             </div>
         </div>
     </section>

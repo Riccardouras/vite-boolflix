@@ -2,10 +2,12 @@
 import AppHeader from './components/AppHeader.vue'
 import {store} from './components/data/store'
 import AppMain from './components/AppMain.vue'
+import AppMainSeries from './components/AppMainSeries.vue'
 export default{
   components : {
     AppHeader,
-    AppMain
+    AppMain,
+    AppMainSeries
   },
   data(){
     return{
@@ -25,6 +27,7 @@ export default{
   <section>
     <AppHeader/>
     <AppMain/>
+    <AppMainSeries/>
   </section>
  
 </template>
