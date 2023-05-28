@@ -17,7 +17,7 @@ export default{
         <div><h1>Series</h1></div>
         <div class="movie-conatiner flex" >
             <div class="card" v-for="serie in store.series">
-                <!-- <img :src="movie.backdrop_path" alt=""> -->
+                <img :src="this.store.UrlImg + serie.backdrop_path" alt=""> 
                 <h2>{{serie.name}}</h2>
                 <h3>{{serie.original_name}}</h3>
                 <p>{{serie.original_language}}</p>
