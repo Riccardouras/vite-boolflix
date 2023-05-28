@@ -1,12 +1,15 @@
 <script>
 import {store} from './data/store'
+import {flags} from "./data/flags";
+import "/node_modules/flag-icons/css/flag-icons.min.css";
 export default{
     components: {
         name: "AppMainSeries",
     },
     data(){
         return{
-            store
+            store,
+            flags
         }
     },
     methods: {
@@ -18,9 +21,13 @@ export default{
         const intero = Math.ceil(voto / 2); 
         const vuote = 5 - intero;
         return Array(vuote).fill('');
-    }
-  }
+    },
+        getFlag(lang) {
+                return 'fi fi-' + this.flags[lang]
+            },
+    },
 }
+
 </script>
 
 <template>
@@ -31,7 +38,7 @@ export default{
                 <img :src="this.store.UrlImg + serie.backdrop_path" :alt="serie.name"> 
                 <h2>{{serie.name}}</h2>
                 <h3>{{serie.original_name}}</h3>
-                <p>{{serie.original_language}}</p>
+                <span>Lang:<p :class="getFlag(serie.original_language)"></p></span>
                 <div>
                     <span v-for="star in getStars(serie.vote_average)" class="star-icon">
                         <i class="fa-solid fa-star"></i>

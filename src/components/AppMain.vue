@@ -1,12 +1,15 @@
 <script>
-import {store} from './data/store'
+import {store} from './data/store';
+import {flags} from "./data/flags";
+import "/node_modules/flag-icons/css/flag-icons.min.css";
 export default{
     components: {
         name: "AppMain",
     },
     data(){
         return{
-            store
+            store,
+            flags
         }
     },
     methods: {
@@ -18,8 +21,11 @@ export default{
       const intero = Math.ceil(voto / 2); 
       const vuote = 5 - intero;
       return Array(vuote).fill('');
-    }
-  }
+    },
+    getFlag(lang) {
+            return 'fi fi-' + this.flags[lang]
+        },
+    },
 }
 </script>
 
@@ -31,12 +37,12 @@ export default{
                 <img :src="this.store.UrlImg + movie.backdrop_path" :alt="movie.title"> 
                 <h2>{{movie.title}}</h2>
                 <h3>{{movie.original_title}}</h3>
-                <p>{{movie.original_lenguage}}</p>
+                <span>Lang:<p :class="getFlag(movie.original_language)"></p></span>
                 <div>
-                    <span v-for="star in getStars(movie.vote_average)" :key="star" class="star-icon">
+                    <span v-for="star in getStars(movie.vote_average)" class="star-icon">
                         <i class="fa-solid fa-star"></i>
                     </span>
-                    <span v-for="emptyStar in getEmptyStars(movie.vote_average)" :key="emptyStar" class="star-icon">
+                    <span v-for="emptyStar in getEmptyStars(movie.vote_average)" class="star-icon">
                         <i class="fa-regular fa-star"></i>
                     </span>
                 </div>
